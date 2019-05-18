@@ -1,5 +1,5 @@
 <?php
-include_once 'connection.php';
+include_once 'logic/connection.php';
 $countries = getDataFromDb();
 ?>
 <!doctype html>
@@ -7,9 +7,8 @@ $countries = getDataFromDb();
 <head>
     <meta charset="utf-8">
     <title>Страны и их популяция</title>
-    <!-- Bootstrap core CSS -->
+    <!-- Bootstrap CSS -->
     <link href="bootstrap-4.3.1-dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom styles for this template -->
     <link href="bootstrap-4.3.1-dist/css/dashboard.css" rel="stylesheet">
 </head>
 <body>
@@ -23,6 +22,7 @@ $countries = getDataFromDb();
         </tr>
         </thead>
         <tbody>
+        <!-- вывод информации -->
         <?php foreach ($countries as $country):?>
             <tr>
                 <td><?=htmlspecialchars($country['countryName'],ENT_HTML5)?></td>
@@ -32,14 +32,14 @@ $countries = getDataFromDb();
         </tbody>
     </table>
 </div>
-<form method="post" action="">
+<form class="form" method="post" action="">
     <h3>Введите данные о стране</h3>
     <label for="name">Название страны</label>
-    <input type="text" name="name"  autocomplete="off" required pattern="^[а-яА-ЯёЁ]+$">
+    <input type="text" name="name"  autocomplete="off" required pattern="([а-яА-ЯёЁ]+\s?)+">
     <label for="population">Популяция</label>
-    <input type="text" name="population"  autocomplete="off" required pattern="^[ 0-9]+$">
-    <input class="btn-primary" type="submit" name="submit" value="Добавить">
+    <input type="text" name="population"  autocomplete="off" required pattern="^[0-9]+$">
+    <input class="btn-primary" type="submit" name="submit" onclick="return confirm('Подтвердите действие')" value="Добавить">
 </form>
 </body>
 </html>
-<?php include_once 'send.php'?>
+<?php include_once 'logic/send.php' ?>
