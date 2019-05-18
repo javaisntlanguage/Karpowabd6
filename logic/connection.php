@@ -1,7 +1,7 @@
 <?php
 try //подключение к бд и создание (таблицы стран)
 {
-    $pdo = new PDO("mysql:host=localhost;dbname=test", "root", "",
+    $pdo = new PDO("mysql:host=localhost;dbname=test;charset=utf8", "root", "",
         [
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
