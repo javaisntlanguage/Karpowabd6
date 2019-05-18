@@ -1,10 +1,10 @@
 <?php
-    if (isset($_POST['submit']) && @$_POST[$countriesColumnsName[1]] && @$_POST[$countriesColumnsName[2]])
+    if (@$_POST['name'] && @$_POST['population'])
     {
-        $insert = $pdo->prepare("INSERT INTO countries (name, population) VALUES(?, ?)");
+        $insert = $pdo->prepare("INSERT INTO countries (countryName, populationCount) VALUES(?, ?)");
         $insert->execute([
-            @$_POST[$countriesColumnsName[1]],
-            @$_POST[$countriesColumnsName[2]]
+            @$_POST['name'],
+            @$_POST['population']
         ]);
         header('Location: index.php');
     }
