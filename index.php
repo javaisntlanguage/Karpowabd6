@@ -32,13 +32,13 @@ $countries = getDataFromDb();
         </tbody>
     </table>
 </div>
-<form class="form" method="post" action="">
+<form class="form" method="post" action="" onsubmit="return confirm('Подтвердите добавление')">
     <h3>Введите данные о стране</h3>
     <label for="name">Название страны</label>
     <input type="text" name="name"  autocomplete="off" required pattern="([а-яА-ЯёЁ]+\s?)+">
     <label for="population">Популяция</label>
     <input type="text" name="population"  autocomplete="off" required pattern="^[0-9]+$">
-    <input class="btn-primary" type="submit" name="submit" onclick="return confirm('Подтвердите действие')" value="Добавить">
+    <input class="btn-primary" type="submit" name="submit" value="Добавить">
 </form>
 </body>
 </html>
