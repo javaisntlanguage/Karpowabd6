@@ -11,6 +11,11 @@ $nameEnterprises = getNameEnterprises();
     <!-- Bootstrap CSS -->
     <link href="bootstrap-4.3.1-dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="bootstrap-4.3.1-dist/css/dashboard.css" rel="stylesheet">
+    <style>
+        input[name=id_enterprises] {
+            color:blue;
+        }
+    </style>
 </head>
 <body>
 <h2>Предприятия</h2>
